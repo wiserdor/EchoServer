@@ -9,4 +9,8 @@ application = ProtocolTypeRouter({
             chat.routing.websocket_urlpatterns
         )
     ),
+    'http':
+        URLRouter(
+            chat.routing.http_urlpatterns
+        ),
 })

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/DcoyaServer.iml" filepath="$PROJECT_DIR$/.idea/DcoyaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EchoServer.iml" filepath="$PROJECT_DIR$/.idea/EchoServer.iml" />
     </modules>
   </component>
 </project>
