@@ -1,13 +1,11 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
-import uuid
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        self.unique_group_name = uuid.uuid4().hex
         self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = 'chat_%s' % self.unique_group_name
+        self.room_group_name = 'chat'
 
         # Join room group
         await self.channel_layer.group_add(
@@ -16,6 +14,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
         )
 
         await self.accept()
+
+        # send unique channel name to consumer
+        await self.send(text_data=json.dumps({
+            'type': 'channel',
+            'message': self.channel_name,
+        }))
 
     async def disconnect(self, close_code):
         # Leave room group
